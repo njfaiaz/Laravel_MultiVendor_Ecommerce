@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -36,7 +37,10 @@ class RegisterController extends Controller
 
             }elseif (Auth()->user()->role_id ==2 ) {
             return route('user.dashboard');
-            }
+
+            }elseif (Auth()->user()->role_id ==3 ) {
+                return route('vendor.dashboard');
+                }
         }
     /**
      * Create a new controller instance.
@@ -76,6 +80,9 @@ class RegisterController extends Controller
             'role_id' => 2,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'created_at' => Carbon::now()
         ]);
     }
+
+
 }

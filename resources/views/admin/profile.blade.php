@@ -101,7 +101,7 @@
                                                 <h6 class="mb-0"></h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <img src="{{ (!empty($adminData->photo)) ? url('admin/media/profile/'.$adminData->photo):url('admin/media/profile/no_image.jpg') }}" alt="Admin" style="width: 100px" height="100px" id="showImage">
+                                                <img src="{{ (!empty($adminData->photo)) ? url('media/profile/'.$adminData->photo):url('media/profile/no_image.jpg') }}" alt="Admin" style="width: 100px" height="100px" id="showImage">
                                             </div>
                                         </div>
                                         <div class="row">

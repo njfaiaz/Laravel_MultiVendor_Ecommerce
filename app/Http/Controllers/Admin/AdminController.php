@@ -32,9 +32,9 @@ class AdminController extends Controller
 
         if ($request->file('photo')){
             $file = $request->file('photo');
-            @unlink(public_path('admin/media/profile/'.$data->photo));
+            @unlink(public_path('media/profile/'.$data->photo));
             $fileName = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('admin/media/profile'),$fileName);
+            $file->move(public_path('media/profile'),$fileName);
             $data['photo'] = $fileName;
         }
         $data->save();

@@ -24,12 +24,15 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check() && Auth::user()->role->id == 1 ) {
                 return redirect()->route('admin.dashboard');
-    
+
             }elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 2) {
                 return redirect()->route('user.dashboard');
+
+            }elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 3) {
+                return redirect()->route('vendor.dashboard');
             }else{
                 return $next($request);
-            } 
+            }
         }
 
     }

@@ -36,7 +36,7 @@
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
                                         <h3 class="">Sign in</h3>
-                                        <p>Don't have an account yet? <a href="authentication-signup.html">Sign up
+                                        <p>Don't have an account yet? <a href="{{ route('register') }}">Sign up
                                                 here</a>
                                         </p>
                                     </div>
@@ -67,10 +67,10 @@
                                                         class="input-group-text bg-transparent"><i
                                                             class='bx bx-hide'></i></a>
                                                             @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

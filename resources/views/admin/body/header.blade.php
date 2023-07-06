@@ -377,10 +377,14 @@
                     </li>
                 </ul>
             </div>
+            @php
+                $id = Auth::user()->id;
+                $adminData = App\Models\User::find($id);
+            @endphp
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="" class="user-img"
+                    <img src="{{ (!empty($adminData->photo)) ? url('media/profile/'.$adminData->photo):url('media/profile/no_image.jpg') }}"" class="user-img"
                         alt="user avatar">
                     <div class="user-info ps-3">
                         <p class="user-name mb-0">{{ Auth::user()->name }}</p>

@@ -33,7 +33,12 @@ class LoginController extends Controller
 
             }elseif (Auth()->user()->role_id ==2 ) {
             return route('user.dashboard');
+
+            }elseif (Auth()->user()->role_id ==3 ) {
+                return route('vendor.dashboard');
             }
+
+
         }
 
     /**
