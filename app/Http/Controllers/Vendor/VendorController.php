@@ -125,6 +125,7 @@ class VendorController extends Controller
             'vendor_join' => Carbon::now(),
             'role_id' => 3,
             'status' => 'inactive',
+            'vendor_join' => Carbon::now(),
             'password' => Hash::make($request->password),
 
         ]);

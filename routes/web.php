@@ -2,12 +2,17 @@
 
 use App\Http\Controllers\User\UserController;
 Use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\VendorManageController;
+use App\Http\Controllers\Admin\VendorProductController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Vendor\VendorController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +29,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
 
 Auth::routes();
 
@@ -71,9 +76,6 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
 
 
 
-
-
-
     // ------------------------------ Admin Vendor Manage Page----------------------------------
     Route::get('vendorInactive', [VendorManageController::class, 'vendorInactive'])->name('inactive.vendor');
     Route::get('vendorActive', [VendorManageController::class, 'vendorActive'])->name('active.vendor');
@@ -82,13 +84,44 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('active/vendor/details/{id}', [VendorManageController::class, 'ActiveDetails'])->name('active.vendor.details');
     Route::post('active/vendor/inactive', [VendorManageController::class, 'inActiveVendorApprove'])->name('inactive.vendor.approve');
 
+
+
+
     // ------------------------------ Admin Product Manage Page----------------------------------
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::get('product/add', [ProductController::class, 'add'])->name('product.add');
     Route::post('product/store', [ProductController::class, 'Store'])->name('product.store');
     Route::get('product/edit/{id}', [ProductController::class, 'Edit'])->name('product.edit');
-    Route::post('product/update/{id}', [ProductController::class, 'Update'])->name('product.update');
+    Route::post('product/update', [ProductController::class, 'Update'])->name('product.update');
     Route::get('product/delete/{id}', [ProductController::class, 'Delete'])->name('product.delete');
+        //  Main Image update route --------------------------------------------------------------------
+    Route::post('product/image/update', [ProductController::class, 'MainImageUpdate'])->name('product.mainImage.update');
+    Route::post('product/multiImage/update', [ProductController::class, 'MultiImageUpdate'])->name('product.multiImage.update');
+    Route::get('product/delete/multiImage/{id}', [ProductController::class, 'MultiImageDelete'])->name('product.multiImage.delete');
+        //  Product Inactive route --------------------------------------------------------------------
+    Route::get('product/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
+    Route::get('product/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
+
+
+    // ------------------------------ Admin Slider Page----------------------------------
+    Route::get('slider', [SliderController::class, 'index'])->name('slider');
+    Route::get('slider/add', [SliderController::class, 'add'])->name('slider.add');
+    Route::post('slider/store', [SliderController::class, 'Store'])->name('slider.store');
+    Route::get('slider/edit/{id}', [SliderController::class, 'Edit'])->name('slider.edit');
+    Route::post('slider/update/{id}', [SliderController::class, 'Update'])->name('slider.update');
+    Route::get('slider/delete/{id}', [SliderController::class, 'Delete'])->name('slider.delete');
+
+
+    // ------------------------------ Admin Banner Page----------------------------------
+    Route::get('banner', [BannerController::class, 'index'])->name('banner');
+    Route::get('banner/add', [BannerController::class, 'add'])->name('banner.add');
+    Route::post('banner/store', [BannerController::class, 'Store'])->name('banner.store');
+    Route::get('banner/edit/{id}', [BannerController::class, 'Edit'])->name('banner.edit');
+    Route::post('banner/update/{id}', [BannerController::class, 'Update'])->name('banner.update');
+    Route::get('banner/delete/{id}', [BannerController::class, 'Delete'])->name('banner.delete');
+
+
+
 
 
 
@@ -109,6 +142,32 @@ Route::group(['prefix'=>'vendor','middleware' =>['vendor','auth'],'namespace'=>'
     Route::post('profile/store', [VendorController::class, 'Store'])->name('vendor.profile.store');
     Route::get('password/change', [VendorController::class, 'ChangePassword'])->name('vendor.ChangePassword');
     Route::post('password/change', [VendorController::class, 'ChangeStore'])->name('vendor.password.store');
+
+    // ------------------------------ Vendor Product Manage Page----------------------------------
+    Route::get('product', [VendorProductController::class, 'index'])->name('vendor.product');
+    Route::get('product/add', [VendorProductController::class, 'add'])->name('vendor.product.add');
+    Route::post('product/store', [VendorProductController::class, 'Store'])->name('vendor.product.store');
+    Route::get('product/edit/{id}', [VendorProductController::class, 'Edit'])->name('vendor.product.edit');
+    Route::post('product/update', [VendorProductController::class, 'Update'])->name('vendor.product.update');
+    Route::get('product/delete/{id}', [VendorProductController::class, 'Delete'])->name('vendor.product.delete');
+    //     //  Main Image update route --------------------------------------------------------------------
+    Route::post('product/image/update', [VendorProductController::class, 'MainImageUpdate'])->name('vendor.product.mainImage.update');
+    Route::post('product/multiImage/update', [VendorProductController::class, 'MultiImageUpdate'])->name('vendor.product.multiImage.update');
+    Route::get('product/delete/multiImage/{id}', [VendorProductController::class, 'MultiImageDelete'])->name('vendor.product.multiImage.delete');
+    //     //  Product Inactive route --------------------------------------------------------------------
+    Route::get('product/inactive/{id}', [VendorProductController::class, 'ProductInactive'])->name('vendor.product.inactive');
+    Route::get('product/active/{id}', [VendorProductController::class, 'ProductActive'])->name('vendor.product.active');
+    Route::get('/subcategory/ajax/{category_id}', [VendorProductController::class, 'VendorGetSubCategory']);
+
+
+
+
+
+
+
+
+
+
 });// Vendor Group Middleware End
 
 
@@ -146,7 +205,19 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
 
             //    ------------------ Vendor Login Or Register  --------------------------------------
     Route::get('become/vendor',[VendorController::class,'BecomeVendor'])->name('become.vendor');
-    Route::get('vendor/login',[VendorController::class,'BecomeVendorLogin'])->name('become.vendor.login');
+    Route::get('vendor/login',[VendorController::class,'BecomeVendorLogin'])->middleware(RedirectIfAuthenticated::class)->name('become.vendor.login');
     Route::post('vendor/register',[VendorController::class,'vendorCreate'])->name('vendor.register');
 
+    // ------------------------------ User Product Details Page----------------------------------
+    Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('product/details/{id}/{slug}', [IndexController::class, 'productDetails']);
+    Route::get('product/category/{id}/{slug}', [IndexController::class, 'productCategory']);
+    Route::get('product/subcategory/{id}/{slug}', [IndexController::class, 'productSubCategory']);
 
+    // --------------------------- Product View model with Ajax -------------------------------
+    Route::get('product/view/model/{id}', [IndexController::class, 'productView']);
+
+
+        //    ------------------ Vendor Details Page  --------------------------------------
+    Route::get('vendor/details/{id}', [IndexController::class, 'vendorDetails'])->name('vendor.details');
+    Route::get('All/vendor/List', [IndexController::class, 'allVendor'])->name('all.vendor');

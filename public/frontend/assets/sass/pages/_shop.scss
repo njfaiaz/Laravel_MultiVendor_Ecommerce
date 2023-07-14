@@ -4,8 +4,8 @@
 	position: relative;
 	background-color: #fff;
 	border: 1px solid $border-color;
-	border-radius: 15px;	
-	overflow: hidden;	
+	border-radius: 15px;
+	overflow: hidden;
 	@include transistion-duration-2s;
 
 	&:hover {
@@ -28,7 +28,7 @@
 		.product-img {
 			position: relative;
 			overflow: hidden;
-			border-radius: 15px;			
+			border-radius: 15px;
 			a {
 				overflow: hidden;
 				display: flex;
@@ -45,7 +45,7 @@
 					}
 				}
 			}
-			
+
 		}
 		.product-img-zoom {
 			a {
@@ -56,7 +56,7 @@
 				}
 			}
 		}
-		
+
 	}
 	.product-action-1 {
 		position: absolute;
@@ -103,7 +103,7 @@
 				left: 50%;
 				position: absolute;
 				white-space: nowrap;
-				border-radius: 5px;					
+				border-radius: 5px;
 				font-size: 11px;
 				padding: 7px 10px;
 				color: #ffffff;
@@ -146,7 +146,7 @@
 				font-size: 15px;
 				margin-left: 1px;
 			}
-			&:hover {				
+			&:hover {
 				color: $color-brand-2;
 				&:after {
 					opacity: 1;
@@ -252,14 +252,14 @@
 				display: block;
 				overflow: hidden;
 				margin-left: 5px;
-			}	
+			}
 			&::before {
 				font-family: "uicons-regular-straight"  !important;
 				font-size: 11px;
 				letter-spacing: 2px;
 				content: '\f225' '\f225' '\f225' '\f225' '\f225';
 				color: $color-warning;
-			}		
+			}
 		}
 		.add-to-cart {
 			width: 44px;
@@ -285,7 +285,7 @@
 				margin-top: 11px;
 			}
 		}
-		
+
 	}
 	.product-card-bottom {
 		display: flex;
@@ -450,7 +450,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			@include transistion-duration-3s;
-			.deals-content {				
+			.deals-content {
 				margin: 0 auto;
 				background-color: #fff;
 				border-radius: 10px;
@@ -479,7 +479,7 @@
 	article:not(:last-child) {
 		margin-bottom: 20px;
 	}
-	h6 {		
+	h6 {
 		a {
 			color: $color-heading;
 			&:hover {
@@ -698,7 +698,7 @@
 				}
 			}
 		}
-		
+
 	}
 }
 .sort-by-dropdown {
@@ -800,7 +800,7 @@
 				}
 			}
 		}
-		
+
 		h2 {
 			font-size: 32px;
 		}
@@ -810,7 +810,7 @@
 				margin-top: 15px;
 				display: block;
 			}
-			.product-price span {				
+			.product-price span {
 				font-size: 32px;
 				&.old-price {
 					font-size: 20px;
@@ -848,7 +848,7 @@
 				}
 			}
 		}
-		
+
 	}
 }
 
@@ -865,11 +865,11 @@
 		opacity: 0.6;
 	}
 }
-.slider-nav-thumbnails {	
+.slider-nav-thumbnails {
 	.slick-list {
 		margin: 0 -10px;
 	}
-	.slick-slide {		
+	.slick-slide {
 		position: relative;
 		border-radius: 15px;
 		overflow: hidden;
@@ -923,14 +923,14 @@
 				right: -20px;
 			}
 		}
-		
+
 	}
 	&:hover {
 		button {
 			opacity: 1;
 		}
 	}
-	
+
 }
 .slider-nav-thumbnails .slick-prev,
 .slider-nav-thumbnails .slick-next {
@@ -1125,7 +1125,7 @@
 			line-height: 1;
 		}
 	}
-	
+
 	.product-price {
 		display: flex;
 		align-items: center;
@@ -1155,7 +1155,7 @@
 		border-top: 1px solid $border-color;
 		padding-top: 15px;
 	}
-	
+
 }
 .button {
 	&.button-add-to-cart {
@@ -1216,7 +1216,7 @@
 	.nav-tabs {
 		.nav-item {
 			a {
-				&.active, &:hover {					
+				&.active, &:hover {
 					color: $color-brand;
 					box-shadow: $box-shadown-2;
 				}
@@ -1233,7 +1233,7 @@
 					text-transform: none;
 					font-size: $font-lg;
 					border-radius: 30px;
-					border: 1px solid $border-color;					
+					border: 1px solid $border-color;
 					background: #fff;
 					color: $color-text;
 				}
@@ -1298,7 +1298,7 @@
 }
 
 .product-detail-rating {
-	display: flex;	
+	display: flex;
 	align-items: center;
 	padding: 15px 0;
 	justify-content: space-between;
@@ -1352,7 +1352,7 @@
 }
 .progress-bar {
 	background-color: $color-brand;
-	
+
 }
 .shop-filter-toogle {
 	margin-bottom: 20px;
@@ -1385,7 +1385,7 @@
 				opacity: 1;
 				visibility: visible;
 				display: inline-block;
-				
+
 			}
 			&.angle-up {
 				opacity: 0;
@@ -1404,7 +1404,7 @@
 		-webkit-box-shadow: $box-shadown-3;
 		box-shadow: $box-shadown-3;
 	}
-	
+
 	.categor-list {
 		li {
 			font-size: 12px;
@@ -1439,10 +1439,10 @@
 		> :not(caption) > * > * {
 			padding: 15px 0;
 		}
-		td, th, thead  {	
+		td, th, thead  {
 			border: 0;
 		}
-		thead {			
+		thead {
 			th {
 				background-color: $border-color;
 				padding: 18px 0;
@@ -1457,17 +1457,17 @@
 					border-radius: 0 20px 20px 0;
 				}
 			}
-		}		
+		}
 		tbody tr img {
 			max-width: 120px;
 			border: 1px solid $border-color;
 			border-radius: 15px;
 		}
 	}
-	
+
 }
 table.no-border {
-	td, th, thead  {	
+	td, th, thead  {
 		border: 0;
 	}
 }

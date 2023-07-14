@@ -209,7 +209,7 @@ li.hr span {
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #BCE3C9;
-    width: 60%;
+    width: 55%;
 }
 
 
@@ -5615,6 +5615,7 @@ table.no-border td, table.no-border th, table.no-border thead {
   border-radius: 10px;
 }
 
+
 .payment_option .custome-radio {
   margin-bottom: 10px;
 }
@@ -10553,7 +10554,7 @@ footer .hotline img {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 .mtb-0 {
   margin: 0;

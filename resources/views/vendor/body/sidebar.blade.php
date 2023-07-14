@@ -50,9 +50,9 @@
                 <div class="menu-title">All Product</div>
             </a>
             <ul>
-                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Product Add</a>
+                <li> <a href="{{ route('vendor.product') }}"><i class="bx bx-right-arrow-alt"></i>All Product</a>
                 </li>
-                <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>All Product</a>
+                <li> <a href="{{ route('vendor.product.add') }}"><i class="bx bx-right-arrow-alt"></i>Product Add </a>
                 </li>
             </ul>
         </li>

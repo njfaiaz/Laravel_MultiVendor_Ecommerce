@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'role_id' => 2,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'vendor_join' => Carbon::now(),
             'created_at' => Carbon::now()
         ]);
     }

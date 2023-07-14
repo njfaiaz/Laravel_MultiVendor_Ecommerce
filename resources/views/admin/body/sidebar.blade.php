@@ -90,6 +90,34 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Slider Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('slider') }}"><i class="bx bx-right-arrow-alt"></i>All Slider</a>
+                </li>
+                <li> <a href="{{ route('slider.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Slider</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Banner Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('banner') }}"><i class="bx bx-right-arrow-alt"></i>All Banner</a>
+                </li>
+                <li> <a href="{{ route('banner.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Banner</a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
     <!--end navigation-->
 </div>

@@ -60,7 +60,54 @@ $(document).on("click", "#delete", function(e){
     });
 });
 
-
-
-
 </script>
+
+<script>
+    $(document).on("click", "#deleteInactive", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+        swal({
+            title: "Are you sure To Inactive?",
+            text: "Once Inactive,",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location.href = link;
+
+            } else {
+                swal("Your imaginary file is safe!");
+            }
+
+        });
+    });
+
+    </script>
+
+<script>
+    $(document).on("click", "#deleteactive", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+        swal({
+            title: "Are you sure To Active?",
+            text: "Once Inactive,",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                window.location.href = link;
+
+            } else {
+                swal("Your imaginary file is safe!");
+            }
+
+        });
+    });
+
+    </script>

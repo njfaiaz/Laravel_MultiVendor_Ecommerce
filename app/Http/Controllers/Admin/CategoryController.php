@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -30,6 +31,7 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
             'category_image' => $save_url,
+            'created_at' => Carbon::now(),
         ]);
         $notification=array(
             'message'=>'Category Image Uploaded Successfully ',
@@ -63,6 +65,7 @@ class CategoryController extends Controller
                 'category_name' => $request->category_name,
                 'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
                 'category_image' => $save_url,
+                'updated_at' => Carbon::now(),
             ]);
             $notification=array(
                 'message'=>'Category Updated With Image Successfully ',
