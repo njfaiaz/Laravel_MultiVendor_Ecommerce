@@ -3,7 +3,7 @@
 @section('title', 'All Vendor List')
 
 
-@section('main')
+@section('user')
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">

@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
@@ -32,7 +32,7 @@
 
     <main class="main">
 
-        @yield('main')
+        @yield('user')
 
     </main>
 
@@ -328,6 +328,7 @@
                 url: "add-to-wishlist/"+product_id,
 
                 success:function(data){
+                    wishlist();
                     // ----------- sweetalert2@11 Message Alert ----------------------
                     const Toast = Swal.mixin({
                             toast: true,
@@ -446,6 +447,147 @@
 
 
     </script>
+
+    {{-- Add to Compare Data Store -------------------------------------------------------------- --}}
+    <script>
+        function addToCompare(product_id){
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                url: "add-to-compare/"+product_id,
+
+                success:function(data){
+                    compare();
+                    // ----------- sweetalert2@11 Message Alert ----------------------
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        if ($.isEmptyObject(data.error)) {
+
+                                Toast.fire({
+                                    type: 'success',
+                                    icon: 'success',
+                                    title: data.success,
+                                })
+                        }else{
+
+                        Toast.fire({
+                                type: 'error',
+                                icon: 'error',
+                                title: data.error,
+                                })
+                        } //Message End
+                }
+            })
+        }
+    </script>
+
+    {{-- Add to Compare Data View Page -------------------------------------------------------------- --}}
+    <script>
+        function compare(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "get-compare-product/",
+
+                success:function(response){
+                    $('#compQty').text(response.compQty);
+                    var rows = ""
+                    $.each(response.compare, function(key, value){
+                        rows +=
+                        `
+                        <tr class="pr_image">
+                            <td class="text-muted font-sm fw-600 font-heading mw-200">Preview</td>
+                            <td class="row_img"><img src="/${value.product.product_thumbnail}" alt="compare-img" style="width:300px;height:300px;"/></td>
+                        </tr>
+                        <tr class="pr_title">
+                            <td class="text-muted font-sm fw-600 font-heading">Name</td>
+                            <td class="product_name">
+                                <h6><a href="shop-product-full.html" class="text-heading" ${value.product.product_name}></a></h6>
+                            </td>
+                        </tr>
+                        <tr class="pr_price">
+                            <td class="text-muted font-sm fw-600 font-heading">Price</td>
+                            <td class="product_price">
+                                ${value.product.discount_price == null
+                                ? `<h4 class="price text-brand">$${value.product.selling_price}</h4>`
+                                :`<h4 class="price text-brand">$${value.product.discount_price}</h4>`
+                                }
+                            </td>
+                        </tr>
+                        <tr class="description">
+                            <td class="text-muted font-sm fw-600 font-heading">Description</td>
+                            <td class="row_text font-xs">
+                                <p class="font-sm text-muted">${value.product.short_disc}</p>
+                            </td>
+                        </tr>
+                        <tr class="pr_stock">
+                            <td class="text-muted font-sm fw-600 font-heading">Stock status</td>
+                            <td class="row_stock">
+                                ${value.product.product_qty > 0
+                                ? `<span class="stock-status in-stock mb-0"> In Stock </span> `
+                                : `<span class="stock-status out-stock mb-0">  Stock Out</span> `
+                                }
+
+                            </td>
+                        </tr>
+                        <tr class="pr_remove text-muted">
+                            <td class="text-muted font-md fw-600"></td>
+                            <td class="row_remove">
+                                <a type="submit" class="text-muted" id="${value.id}" onclick="compareRemove(this.id)"><i class="fi-rs-trash mr-5"></i><span>Remove</span> </a>
+                            </td>
+                        </tr>
+                        `
+                    });
+                    $('#compare').html(rows);
+                }
+            })
+        }
+        compare();
+
+
+        // Compare Remove ---------------------------------------
+        function compareRemove(id){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "compareRemove/"+id,
+
+                success:function(data){
+                    compare();
+                    // ----------- sweetalert2@11 Message Alert ----------------------
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        if ($.isEmptyObject(data.error)) {
+
+                                Toast.fire({
+                                    type: 'success',
+                                    icon: 'success',
+                                    title: data.success,
+                                })
+                        }else{
+
+                        Toast.fire({
+                                type: 'error',
+                                icon: 'error',
+                                title: data.error,
+                                })
+                        } //Message End
+                }
+            })
+        } // End Remove
+
+
+
+    </script>
+
 
 
 </body>

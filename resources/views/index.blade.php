@@ -1,4 +1,4 @@
-@extends('frontend.user_dashboard')
+@extends('home')
 @section('title','Profile')
 
 
@@ -294,7 +294,3 @@
     });
 </script>
 @endsection
-
-
-
-

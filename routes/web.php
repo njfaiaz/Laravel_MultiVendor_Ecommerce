@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\VendorManageController;
 use App\Http\Controllers\Admin\VendorProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -194,6 +195,14 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('get-wishlist-product', [WishlistController::class, 'getWishlistProduct']);
     Route::get('wishlistRemove/{id}', [WishlistController::class, 'WishlistRemove']);
 
+    // ------------------------------ Compare Page----------------------------------
+    Route::get('compare', [CompareController::class, 'allCompare'])->name('compare');
+    Route::get('get-compare-product', [CompareController::class, 'getCompareProduct']);
+    Route::get('compareRemove/{id}', [CompareController::class, 'compareRemove']);
+
+
+
+
 
 
 });  // User Group Middleware End
@@ -233,6 +242,9 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
 
     // ---------------- Add to Wishlist  -------------------------------
     Route::post('add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishlist']);
+
+    // ---------------- Add to Compare  -------------------------------
+    Route::post('add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
 
 
         //    ------------------ Vendor Details Page  --------------------------------------
