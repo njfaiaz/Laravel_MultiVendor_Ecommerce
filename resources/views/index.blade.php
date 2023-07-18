@@ -1,4 +1,4 @@
-@extends('home')
+@extends('frontend.user_dashboard')
 @section('title','Profile')
 
 

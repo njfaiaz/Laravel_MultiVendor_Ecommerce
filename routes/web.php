@@ -10,7 +10,9 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\VendorManageController;
 use App\Http\Controllers\Admin\VendorProductController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Models\Brand;
@@ -187,7 +189,10 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::post('user/profile/store', [UserController::class, 'Store'])->name('user.profile.store');
     Route::post('password/change', [UserController::class, 'ChangeStore'])->name('user.password.store');
 
-
+    // ------------------------------ Wishlist Page----------------------------------
+    Route::get('wishlist', [WishlistController::class, 'allWishlist'])->name('wishlist');
+    Route::get('get-wishlist-product', [WishlistController::class, 'getWishlistProduct']);
+    Route::get('wishlistRemove/{id}', [WishlistController::class, 'WishlistRemove']);
 
 
 
@@ -216,6 +221,18 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
 
     // --------------------------- Product View model with Ajax -------------------------------
     Route::get('product/view/model/{id}', [IndexController::class, 'productView']);
+
+    // --------------------------- Add to cart Product with package -------------------------------
+    Route::post('cart/data/store/{id}', [CartController::class, 'AddToCart']);
+    Route::get('product/mini/cart', [CartController::class, 'addMiniCart']);
+    Route::get('miniCart/product/remove/{rowId}', [CartController::class, 'miniCartRemove']);
+
+    // ---------------- Add to Details Page cart Product with package -------------------------------
+    Route::post('cartDetails/data/store/{id}', [CartController::class, 'AddToCartDetails']);
+
+
+    // ---------------- Add to Wishlist  -------------------------------
+    Route::post('add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishlist']);
 
 
         //    ------------------ Vendor Details Page  --------------------------------------
