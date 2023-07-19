@@ -132,6 +132,23 @@
             </ul>
         </li>
 
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Shipping Area </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('division') }}"><i class="bx bx-right-arrow-alt"></i>All Divisions</a>
+                </li>
+                <li> <a href="{{ route('district') }}"><i class="bx bx-right-arrow-alt"></i>Add District</a>
+                </li>
+                <li> <a href="{{ route('state') }}"><i class="bx bx-right-arrow-alt"></i>Add States</a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
     <!--end navigation-->
 </div>

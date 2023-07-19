@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\VendorManageController;
@@ -88,8 +89,6 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::post('active/vendor/inactive', [VendorManageController::class, 'inActiveVendorApprove'])->name('inactive.vendor.approve');
 
 
-
-
     // ------------------------------ Admin Product Manage Page----------------------------------
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::get('product/add', [ProductController::class, 'add'])->name('product.add');
@@ -106,7 +105,7 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('product/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
 
 
-    // ------------------------------ Admin Slider Page----------------------------------
+    // ------------------------------ Admin Slider Page ----------------------------------
     Route::get('slider', [SliderController::class, 'index'])->name('slider');
     Route::get('slider/add', [SliderController::class, 'add'])->name('slider.add');
     Route::post('slider/store', [SliderController::class, 'Store'])->name('slider.store');
@@ -115,7 +114,7 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('slider/delete/{id}', [SliderController::class, 'Delete'])->name('slider.delete');
 
 
-    // ------------------------------ Admin Banner Page----------------------------------
+    // ------------------------------ Admin Banner Page ----------------------------------
     Route::get('banner', [BannerController::class, 'index'])->name('banner');
     Route::get('banner/add', [BannerController::class, 'add'])->name('banner.add');
     Route::post('banner/store', [BannerController::class, 'Store'])->name('banner.store');
@@ -123,13 +122,41 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::post('banner/update/{id}', [BannerController::class, 'Update'])->name('banner.update');
     Route::get('banner/delete/{id}', [BannerController::class, 'Delete'])->name('banner.delete');
 
-    // ------------------------------ Admin Coupon Page----------------------------------
+    // ------------------------------ Admin Coupon Page ----------------------------------
     Route::get('coupon', [CouponController::class, 'index'])->name('coupon');
     Route::get('coupon/add', [CouponController::class, 'add'])->name('coupon.add');
     Route::post('coupon/store', [CouponController::class, 'Store'])->name('coupon.store');
     Route::get('coupon/edit/{id}', [CouponController::class, 'Edit'])->name('coupon.edit');
     Route::post('coupon/update/{id}', [CouponController::class, 'Update'])->name('coupon.update');
     Route::get('coupon/delete/{id}', [CouponController::class, 'Delete'])->name('coupon.delete');
+
+    // ------------------------------ Admin All Division Page ----------------------------------
+    Route::get('division', [ShippingAreaController::class, 'index'])->name('division');
+    Route::get('division/add', [ShippingAreaController::class, 'add'])->name('division.add');
+    Route::post('division/store', [ShippingAreaController::class, 'Store'])->name('division.store');
+    Route::get('division/edit/{id}', [ShippingAreaController::class, 'Edit'])->name('division.edit');
+    Route::post('division/update/{id}', [ShippingAreaController::class, 'Update'])->name('division.update');
+    Route::get('division/delete/{id}', [ShippingAreaController::class, 'Delete'])->name('division.delete');
+
+
+    // ------------------------------ Admin All District Page ----------------------------------
+    Route::get('district', [ShippingAreaController::class, 'District'])->name('district');
+    Route::get('district/add', [ShippingAreaController::class, 'addDistrict'])->name('district.add');
+    Route::post('district/store', [ShippingAreaController::class, 'StoreDistrict'])->name('district.store');
+    Route::get('district/edit/{id}', [ShippingAreaController::class, 'EditDistrict'])->name('district.edit');
+    Route::post('district/update/{id}', [ShippingAreaController::class, 'UpdateDistrict'])->name('district.update');
+    Route::get('district/delete/{id}', [ShippingAreaController::class, 'DeleteDistrict'])->name('district.delete');
+
+
+    // ------------------------------ Admin All State Page ----------------------------------
+    Route::get('state', [ShippingAreaController::class, 'State'])->name('state');
+    Route::get('state/add', [ShippingAreaController::class, 'addState'])->name('state.add');
+    Route::post('state/store', [ShippingAreaController::class, 'StoreState'])->name('state.store');
+    Route::get('state/edit/{id}', [ShippingAreaController::class, 'EditState'])->name('state.edit');
+    Route::post('state/update/{id}', [ShippingAreaController::class, 'UpdateState'])->name('state.update');
+    Route::get('state/delete/{id}', [ShippingAreaController::class, 'DeleteState'])->name('state.delete');
+    Route::get('district/ajax/{district_id}', [ShippingAreaController::class, 'GetDistrict']);
+
 
 
 
