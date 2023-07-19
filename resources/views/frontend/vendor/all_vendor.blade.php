@@ -101,7 +101,7 @@
                                 <div class="d-flex justify-content-between align-items-end mb-30">
                                     <div>
                                         <div class="product-category">
-                                            <span class="text-muted">Since {{ $vendor->vendor_join }}</span>
+                                            <span class="text-muted">Since {{ Carbon\Carbon::parse($vendor->vendor_join)->format('d F Y') }}</span>
                                         </div>
                                         <h4 class="mb-5"><a href="{{ route('vendor.details',$vendor->id) }}">{{ $vendor->name }}</a></h4>
                                         <div class="product-rate-cover">

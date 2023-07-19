@@ -5,6 +5,7 @@ Use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -16,7 +17,6 @@ use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
 use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Models\Brand;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -123,7 +123,13 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::post('banner/update/{id}', [BannerController::class, 'Update'])->name('banner.update');
     Route::get('banner/delete/{id}', [BannerController::class, 'Delete'])->name('banner.delete');
 
-
+    // ------------------------------ Admin Coupon Page----------------------------------
+    Route::get('coupon', [CouponController::class, 'index'])->name('coupon');
+    Route::get('coupon/add', [CouponController::class, 'add'])->name('coupon.add');
+    Route::post('coupon/store', [CouponController::class, 'Store'])->name('coupon.store');
+    Route::get('coupon/edit/{id}', [CouponController::class, 'Edit'])->name('coupon.edit');
+    Route::post('coupon/update/{id}', [CouponController::class, 'Update'])->name('coupon.update');
+    Route::get('coupon/delete/{id}', [CouponController::class, 'Delete'])->name('coupon.delete');
 
 
 

@@ -179,7 +179,7 @@
                     </div>
                     <div class="vendor-info">
                         <div class="product-category">
-                            <span class="text-muted">Since {{ $vendor->vendor_join }}</span>
+                            <span class="text-muted">Since {{ Carbon\Carbon::parse($vendor->vendor_join)->format('d F Y') }}</span>
                         </div>
                         <h4 class="mb-5"><a href="vendor-details-1.html" class="text-heading">{{ $vendor->name }}</a>
                         </h4>
