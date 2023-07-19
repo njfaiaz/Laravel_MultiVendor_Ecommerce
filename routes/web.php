@@ -177,10 +177,6 @@ Route::group(['prefix'=>'vendor','middleware' =>['vendor','auth'],'namespace'=>'
 
 
 
-
-
-
-
 // ===================================== User Dashboard All Part =====================================
 
 Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
@@ -199,6 +195,14 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('compare', [CompareController::class, 'allCompare'])->name('compare');
     Route::get('get-compare-product', [CompareController::class, 'getCompareProduct']);
     Route::get('compareRemove/{id}', [CompareController::class, 'compareRemove']);
+
+
+    // ------------------------------ Cart Page View ----------------------------------
+    Route::get('myCart',[CartController::class,'MyCart'])->name('myCart');
+    Route::get('get-cart-product',[CartController::class,'getCartProduct']);
+    Route::get('cartRemove/{rowId}', [CartController::class, 'cartRemove']);
+    Route::get('cart-decrement/{rowId}', [CartController::class, 'cartDecrement']);
+    Route::get('cart-increment/{rowId}', [CartController::class, 'cartIncrement']);
 
 
 

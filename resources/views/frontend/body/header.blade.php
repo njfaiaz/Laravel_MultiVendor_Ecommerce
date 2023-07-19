@@ -113,7 +113,7 @@
                                 <a href="{{ route('wishlist') }}">
                                     <img class="svgInject" alt="Nest"
                                         src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-heart.svg" />
-                                    <span class="pro-count blue" id="wishQty"></span>
+                                    <span class="pro-count blue" id="wishQty">0</span>
                                 </a>
                                 <a href="{{ route('wishlist') }}"><span class="lable">Wishlist</span></a>
                             </div>
@@ -122,7 +122,7 @@
                             <div class="header-action-icon-2">
                                 <a href="{{ route('compare') }}">
                                     <img class="svgInject" alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-compare.svg')}}" />
-                                    <span class="pro-count blue" id="compQty"></span>
+                                    <span class="pro-count blue" id="compQty">0</span>
                                 </a>
                                 <a href="{{ route('compare') }}"><span class="lable ml-0">Compare</span></a>
                             </div>
@@ -133,9 +133,9 @@
                                 <a class="mini-cart-icon" href="shop-cart.html">
                                     <img alt="Nest"
                                         src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-cart.svg" />
-                                    <span class="pro-count blue" id="cartQty"></span>
+                                    <span class="pro-count blue" id="cartQty">0</span>
                                 </a>
-                                <a href="shop-cart.html"><span class="lable">Cart</span></a>
+                                <a href="{{ route('myCart') }}"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
           {{-- ------------------------   mini cart start with ajax ---------------------- --}}
