@@ -272,6 +272,9 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::post('cart/data/store/{id}', [CartController::class, 'AddToCart']);
     Route::get('product/mini/cart', [CartController::class, 'addMiniCart']);
     Route::get('miniCart/product/remove/{rowId}', [CartController::class, 'miniCartRemove']);
+    Route::post('coupon-apply', [CartController::class, 'couponApply']);
+    Route::get('coupon-calculation', [CartController::class, 'couponCalculation']);
+    Route::get('couponRemove', [CartController::class, 'CouponRemove']);
 
     // ---------------- Add to Details Page cart Product with package -------------------------------
     Route::post('cartDetails/data/store/{id}', [CartController::class, 'AddToCartDetails']);
