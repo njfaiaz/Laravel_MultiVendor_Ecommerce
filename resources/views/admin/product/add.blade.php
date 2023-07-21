@@ -7,7 +7,7 @@
 @endsection --}}
 
 @extends('admin.admin_dashboard')
-<script src="{{ asset('admin/assets') }}/js/3.6.0.jquery.min.js"></script>
+<script src="{{ asset('admin/assets/js/3.6.0.jquery.min.js') }}"></script>
 @section('title', 'Category Add ')
 
 @section('admin')

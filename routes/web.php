@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\VendorManageController;
 use App\Http\Controllers\Admin\VendorProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
@@ -243,8 +244,14 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
 
 
 });  // User Group Middleware End
+  // ------------------------------ Checkout Page View ----------------------------------
+Route::controller(CheckoutController::class)->group(function(){
+    Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+    Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+    Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
 
 
+});
 
 
 // ================================= General User All Route This ===========================================
@@ -275,6 +282,16 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::post('coupon-apply', [CartController::class, 'couponApply']);
     Route::get('coupon-calculation', [CartController::class, 'couponCalculation']);
     Route::get('couponRemove', [CartController::class, 'CouponRemove']);
+
+    // ------------------------------ Cart Page View ----------------------------------
+    Route::get('myCart',[CartController::class,'MyCart'])->name('myCart');
+    Route::get('get-cart-product',[CartController::class,'getCartProduct']);
+    Route::get('cartRemove/{rowId}', [CartController::class, 'cartRemove']);
+    Route::get('cart-decrement/{rowId}', [CartController::class, 'cartDecrement']);
+    Route::get('cart-increment/{rowId}', [CartController::class, 'cartIncrement']);
+
+    // --------------------------- Cart Page Check Out -------------------------------
+    Route::get('checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
     // ---------------- Add to Details Page cart Product with package -------------------------------
     Route::post('cartDetails/data/store/{id}', [CartController::class, 'AddToCartDetails']);

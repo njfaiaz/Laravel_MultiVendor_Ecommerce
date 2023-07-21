@@ -16,6 +16,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/main.css?v=5.3" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     <title> @yield('title')</title>
 </head>
 
@@ -82,6 +83,30 @@
     <script src="{{ asset('frontend/assets') }}/js/main.js?v=5.3"></script>
     <script src="{{ asset('frontend/assets') }}/js/shop.js?v=5.3"></script>
     <script src="{{ asset('frontend/assets/sweetalert2@11') }}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+     @if(Session::has('message'))
+     var type = "{{ Session::get('alert','info') }}"
+     switch(type){
+        case 'info':
+        toastr.info(" {{ Session::get('message') }} ");
+        break;
+        case 'success':
+        toastr.success(" {{ Session::get('message') }} ");
+        break;
+        case 'warning':
+        toastr.warning(" {{ Session::get('message') }} ");
+        break;
+        case 'error':
+        toastr.error(" {{ Session::get('message') }} ");
+        break;
+     }
+     @endif
+    </script>
+
+
   {{-- -------------------------------  Quickview with ajax view with id ------------------- --}}
 
     <script>
@@ -95,7 +120,7 @@
         function productView(id){ //productView muloto ze page er view hobe oi page er id
             $.ajax({
                 type: 'GET',
-                url: 'product/view/model/'+id,
+                url: '/product/view/model/'+id,
                 dataType: 'json',
                 success: function(data){
                     $('#pname').text(data.product.product_name);
@@ -164,7 +189,7 @@
                 data:{
                     product_name:product_name, color:color, size:size, quantity:quantity
                 },
-                url: 'cart/data/store/'+id,
+                url: '/cart/data/store/'+id,
                 success:function(data){
                     miniCart();
                     $('#closeModal').click();
@@ -210,7 +235,7 @@
                 data:{
                     product_name:product_name, color:color, size:size, quantity:quantity
                 },
-                url: 'cartDetails/data/store/'+id,
+                url: '/cartDetails/data/store/'+id,
                 success:function(data){
                     miniCart();
 
@@ -246,7 +271,7 @@
         function miniCart(){
             $.ajax({
                 type: 'GET',
-                url: 'product/mini/cart',
+                url: '/product/mini/cart',
                 dataType: 'json',
                 success:function(response){
                     // $('#cartQty').text(response.cartQty);
@@ -287,7 +312,7 @@
         function miniCartRemove(rowId){
             $.ajax({
                 type: 'GET',
-                url: 'miniCart/product/remove/'+rowId,
+                url: '/miniCart/product/remove/'+rowId,
                 dataType: 'json',
                 success:function(data){
                     miniCart();
@@ -325,7 +350,7 @@
             $.ajax({
                 type: "POST",
                 dataType: 'json',
-                url: "add-to-wishlist/"+product_id,
+                url: "/add-to-wishlist/"+product_id,
 
                 success:function(data){
                     wishlist();
@@ -361,7 +386,7 @@
             $.ajax({
                 type: "GET",
                 dataType: 'json',
-                url: "get-wishlist-product/",
+                url: "/get-wishlist-product/",
 
                 success:function(response){
                     $('#wishQty').text(response.wishQty);
@@ -414,7 +439,7 @@
             $.ajax({
                 type: "GET",
                 dataType: 'json',
-                url: "wishlistRemove/"+id,
+                url: "/wishlistRemove/"+id,
 
                 success:function(data){
                     wishlist();
@@ -454,7 +479,7 @@
             $.ajax({
                 type: "POST",
                 dataType: 'json',
-                url: "add-to-compare/"+product_id,
+                url: "/add-to-compare/"+product_id,
 
                 success:function(data){
                     compare();
@@ -491,7 +516,7 @@
             $.ajax({
                 type: "GET",
                 dataType: 'json',
-                url: "get-compare-product/",
+                url: "/get-compare-product/",
 
                 success:function(response){
                     $('#compQty').text(response.compQty);
@@ -554,7 +579,7 @@
             $.ajax({
                 type: "GET",
                 dataType: 'json',
-                url: "compareRemove/"+id,
+                url: "/compareRemove/"+id,
 
                 success:function(data){
                     compare();
@@ -590,7 +615,7 @@
     function cart(){
         $.ajax({
             type: 'GET',
-            url: 'get-cart-product',
+            url: '/get-cart-product',
             dataType: 'json',
             success:function(response){
                 var rows = ""
@@ -612,14 +637,14 @@
                             <td class="price" data-title="Price">
                                 ${value.options.color == null
                                     ? `<span>......</span>`
-                                    : `<h4 class="text-body">${value.options.color} </h4>`
+                                    : `<h6 class="text-body">${value.options.color} </h6>`
                                 }
 
                             </td>
                             <td class="price" data-title="Price">
                                 ${value.options.size == null
                                     ? `<span>......</span>`
-                                    : `<h4 class="text-body">${value.options.size} </h4>`
+                                    : `<h6 class="text-body">${value.options.size} </h6>`
                                 }
                             </td>
                             <td class="text-center detail-info" data-title="Stock">
@@ -656,7 +681,7 @@
     function cartRemove(rowId){
         $.ajax({
             type: 'GET',
-            url: 'cartRemove/'+rowId,
+            url: '/cartRemove/'+rowId,
             dataType: 'json',
             success:function(data){
                 couponCalculation();
@@ -691,7 +716,7 @@
     function cartDecrement(rowId){
         $.ajax({
             type: 'GET',
-            url: "cart-decrement/"+rowId,
+            url: "/cart-decrement/"+rowId,
             dataType: 'json',
             success:function(data){
                 couponCalculation();
@@ -704,7 +729,7 @@
     function cartIncrement(rowId){
         $.ajax({
             type: 'GET',
-            url: "cart-increment/"+rowId,
+            url: "/cart-increment/"+rowId,
             dataType: 'json',
             success:function(data){
                 couponCalculation();
@@ -727,10 +752,9 @@
                 type: "POST",
                 dataType: 'json',
                 data: {coupon_name:coupon_name},
-                url: "coupon-apply",
+                url: "/coupon-apply",
                 success:function(data){
                     couponCalculation();
-
                     if (data.validity == true) {
                         $('#couponField').hide();
                     }
@@ -768,7 +792,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: 'coupon-calculation',
+            url: '/coupon-calculation',
             success:function(data){
                 if (data.total) {
                     $('#couponCalField').html(
@@ -838,7 +862,7 @@
     function couponRemove(){
         $.ajax({
             type: 'GET',
-            url: 'couponRemove',
+            url: '/couponRemove',
             dataType: 'json',
             success:function(data){
                 couponCalculation();

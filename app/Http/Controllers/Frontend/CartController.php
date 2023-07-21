@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use App\Models\Product;
+use App\Models\ShipDivision;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
@@ -220,4 +222,35 @@ class CartController extends Controller
         Session::forget('coupon');
         return response()->json(['success' => 'Coupon Remove Success']);
     }  // End Method
+
+
+    // Check Out Page -------------------------------------------------------------------------------
+
+    public function CheckoutCreate(){
+        if (Auth::check()) {
+            if (Cart::total() > 0) {
+                $carts = Cart::content();
+                $cartQty = Cart::count();
+                $cartTotal = Cart::total();
+                $division = ShipDivision::orderBy('division_name','ASC')->get();
+                return view('frontend.product.checkout',compact('carts','cartQty','cartTotal','division'));
+            } else {
+                $notification=array(
+                    'message'=>'Shopping  At List One Product ',
+                    'alert'=>'error'
+                );
+                return Redirect()->to('/')->with($notification);
+            }
+
+        } else {
+
+
+            $notification=array(
+                'message'=>'You Need to Login First ',
+                'alert'=>'error'
+            );
+            return Redirect()->route('user.login')->with($notification);
+        }
+
+    }   // End Method
 }
