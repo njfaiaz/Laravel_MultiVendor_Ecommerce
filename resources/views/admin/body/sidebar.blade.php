@@ -149,6 +149,18 @@
             </ul>
         </li>
 
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Order Manage </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('pending.order') }}"><i class="bx bx-right-arrow-alt"></i>Panding Order</a></li>
+            </ul>
+        </li>
+
     </ul>
     <!--end navigation-->
 </div>

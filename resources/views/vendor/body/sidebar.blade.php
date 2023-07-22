@@ -65,7 +65,7 @@
                 <div class="menu-title">All Order</div>
             </a>
             <ul>
-                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Product Add</a>
+                <li> <a href="{{ route('vendor.all.order') }}"><i class="bx bx-right-arrow-alt"></i>All Order</a>
                 </li>
                 <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>All Product</a>
                 </li>

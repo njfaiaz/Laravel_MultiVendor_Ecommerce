@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Http\Controllers\Admin\SliderController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
+use App\Http\Controllers\Vendor\VendorOrderController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -159,7 +161,13 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('state/delete/{id}', [ShippingAreaController::class, 'DeleteState'])->name('state.delete');
     Route::get('district/ajax/{district_id}', [ShippingAreaController::class, 'GetDistrict']);
 
-
+    // ------------------------------ Admin Order Manage Page ----------------------------------
+    Route::get('pending/order', [OrderController::class, 'PendingOrder'])->name('pending.order');
+    // Route::get('slider/add', [OrderController::class, 'add'])->name('slider.add');
+    // Route::post('slider/store', [OrderController::class, 'Store'])->name('slider.store');
+    // Route::get('slider/edit/{id}', [OrderController::class, 'Edit'])->name('slider.edit');
+    // Route::post('slider/update/{id}', [OrderController::class, 'Update'])->name('slider.update');
+    // Route::get('slider/delete/{id}', [OrderController::class, 'Delete'])->name('slider.delete');
 
 
 
@@ -197,7 +205,13 @@ Route::group(['prefix'=>'vendor','middleware' =>['vendor','auth'],'namespace'=>'
     Route::get('product/active/{id}', [VendorProductController::class, 'ProductActive'])->name('vendor.product.active');
     Route::get('/subcategory/ajax/{category_id}', [VendorProductController::class, 'VendorGetSubCategory']);
 
-
+    // ------------------------------ Vendor Order Manage Page ----------------------------------
+    Route::get('pending/order', [VendorOrderController::class, 'PendingOrder'])->name('vendor.all.order');
+    // Route::get('slider/add', [OrderController::class, 'add'])->name('slider.add');
+    // Route::post('slider/store', [OrderController::class, 'Store'])->name('slider.store');
+    // Route::get('slider/edit/{id}', [OrderController::class, 'Edit'])->name('slider.edit');
+    // Route::post('slider/update/{id}', [OrderController::class, 'Update'])->name('slider.update');
+    // Route::get('slider/delete/{id}', [OrderController::class, 'Delete'])->name('slider.delete');
 
 
 

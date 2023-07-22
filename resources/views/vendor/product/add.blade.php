@@ -13,7 +13,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item">
-                            <a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                            <a href="{{ route('vendor.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
                     </ol>
                 </nav>
