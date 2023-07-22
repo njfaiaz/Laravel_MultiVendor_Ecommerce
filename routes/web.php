@@ -241,6 +241,7 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
 
     // ------------------------------ Strip Payment Page View ----------------------------------
     Route::post('stripe/order',[StripeController::class,'StripOrder'])->name('stripe.order');
+    Route::post('cash/order',[StripeController::class,'CashOrder'])->name('cash.order');
 
 
 
