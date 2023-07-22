@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\CompareController;
+use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -238,8 +239,8 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('cart-decrement/{rowId}', [CartController::class, 'cartDecrement']);
     Route::get('cart-increment/{rowId}', [CartController::class, 'cartIncrement']);
 
-
-
+    // ------------------------------ Strip Payment Page View ----------------------------------
+    Route::post('stripe/order',[StripeController::class,'StripOrder'])->name('stripe.order');
 
 
 

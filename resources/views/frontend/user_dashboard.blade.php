@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/main.css?v=5.3" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <script src="https://js.stripe.com/v3/"></script>
     <title> @yield('title')</title>
 </head>
 
@@ -49,7 +50,7 @@
 
 
 
-    <!-- Preloader Start -->
+    {{-- <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -58,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Vendor JS-->
     <script src="{{ asset('frontend/assets') }}/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="{{ asset('frontend/assets') }}/js/vendor/jquery-3.6.0.min.js"></script>
@@ -125,6 +126,7 @@
                 success: function(data){
                     $('#pname').text(data.product.product_name);
                     $('#pprice').text(data.product.selling_price);
+                    $('#pvendor_id').text(data.product.vendor_id);
                     $('#pcode').text(data.product.product_code);
                     $('#pcategory').text(data.product.category.category_name); // category beshi mane ralationship er jonno
                     $('#pbrand').text(data.product.brand.brand_name); // category beshi mane ralationship er jonno
@@ -179,6 +181,7 @@
         function addToCart(){
             var product_name = $('#pname').text();
             var id = $('#product_id').val();
+            var vendor = $('#pvendor_id').text();
             var color = $('#color option:selected').text();
             var size = $('#size option:selected').text();
             var quantity = $('#qty').val();
@@ -187,7 +190,7 @@
                 type : "POST",
                 dataType : 'json',
                 data:{
-                    product_name:product_name, color:color, size:size, quantity:quantity
+                    product_name:product_name, color:color, size:size, quantity:quantity, vendor:vendor
                 },
                 url: '/cart/data/store/'+id,
                 success:function(data){
@@ -225,6 +228,7 @@
         function addToCartDetails(){
             var product_name = $('#dpname').text();
             var id = $('#dproduct_id').val();
+            var vendor = $('#vproduct_id').val();
             var color = $('#dcolor option:selected').text();
             var size = $('#dsize option:selected').text();
             var quantity = $('#dqty').val();
@@ -233,7 +237,7 @@
                 type : "POST",
                 dataType : 'json',
                 data:{
-                    product_name:product_name, color:color, size:size, quantity:quantity
+                    product_name:product_name, color:color, size:size, quantity:quantity, vendor:vendor
                 },
                 url: '/cartDetails/data/store/'+id,
                 success:function(data){

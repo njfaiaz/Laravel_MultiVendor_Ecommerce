@@ -1,7 +1,7 @@
 @extends('frontend.user_dashboard')
 
 
-@section('title', 'Product Details')
+@section('title', 'Cart Details')
 
 @section('user')
     <div class="page-header breadcrumb-wrap">
