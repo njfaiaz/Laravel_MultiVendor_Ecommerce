@@ -42,7 +42,10 @@
                                 <td>${{ $item->amount }}</td>
                                 <td>{{ $item->payment_method }}</td>
                                 <td> <span class="badge rounded-pill bg-success"> {{ $item->status }}</span></td>
-                                <td><a href="{{ route('admin.order.details',$item->id) }} " class="btn btn-info" title="Details">Derails </a></td>
+                                <td>
+                                    <a href="{{ route('admin.order.details',$item->id) }} " class="btn btn-info" title="Details">Derails </a>
+                                    <a href="{{ route('admin.invoice.download',$item->id) }} " class="btn btn-info" title="Invoice">Invoice </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

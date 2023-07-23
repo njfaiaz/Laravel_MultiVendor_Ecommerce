@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -174,7 +175,10 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('processing/delivered/{order_id}', [OrderController::class, 'ProcessingToDelivered'])->name('processing-delivered');
     Route::get('invoice/download/{order_id}', [OrderController::class, 'InvoiceDownload'])->name('admin.invoice.download');
 
-
+    // ------------------------------ Admin User Return Part Page ----------------------------------
+    Route::get('return/request', [ReturnController::class, 'ReturnRequest'])->name('return.request');
+    Route::get('return/request/approved/{order_id}', [ReturnController::class, 'ReturnRequestApproved'])->name('return.request.approved');
+    Route::get('return/request/Complete', [ReturnController::class, 'ReturnRequestComplete'])->name('complete.return.request');
 
 
 
@@ -270,7 +274,8 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('order/page', [AllUserController::class, 'UserOrder'])->name('user.order.page');
     Route::get('order/details/{order_id}', [AllUserController::class, 'OrderDetails']);
     Route::get('order/invoice/{order_id}', [AllUserController::class, 'OrderInvoice']);
-
+    Route::post('return/order/{order_id}', [AllUserController::class, 'ReturnOrder'])->name('return.order');
+    Route::get('return/order/page', [AllUserController::class, 'ReturnOrderPage'])->name('return.order.page');
 
 
 
