@@ -264,6 +264,7 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('change/password', [AllUserController::class, 'ChangePassword'])->name('user.change.password');
     Route::get('order/page', [AllUserController::class, 'UserOrder'])->name('user.order.page');
     Route::get('order/details/{order_id}', [AllUserController::class, 'OrderDetails']);
+    Route::get('order/invoice/{order_id}', [AllUserController::class, 'OrderInvoice']);
 
 
 
