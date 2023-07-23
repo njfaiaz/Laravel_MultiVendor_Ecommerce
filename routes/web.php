@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\VendorManageController;
 use App\Http\Controllers\Admin\VendorProductController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\StripeController;
@@ -256,6 +257,15 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     // ------------------------------ Strip Payment Page View ----------------------------------
     Route::post('stripe/order',[StripeController::class,'StripOrder'])->name('stripe.order');
     Route::post('cash/order',[StripeController::class,'CashOrder'])->name('cash.order');
+
+
+    // ------------------------------ User Dashboard ----------------------------------
+    Route::get('account/page', [AllUserController::class, 'UserAccount'])->name('user.account.page');
+    Route::get('change/password', [AllUserController::class, 'ChangePassword'])->name('user.change.password');
+    Route::get('order/page', [AllUserController::class, 'UserOrder'])->name('user.order.page');
+    Route::get('order/details/{order_id}', [AllUserController::class, 'OrderDetails']);
+
+
 
 
 

@@ -1,9 +1,131 @@
 @extends('home')
-@section('title','Profile')
+@section('title', 'Profile')
 
 
 @section('user')
-<div class="page-header breadcrumb-wrap">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> My Account
+            </div>
+        </div>
+    </div>
+    <div class="page-content pt-50 pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="row">
+
+@include('frontend.user.menue')
+
+                        <div class="col-md-9">
+                            <div class="tab-content account dashboard-content pl-50">
+                                <div class="tab-pane fade active show" id="dashboard" role="tabpanel"
+                                    aria-labelledby="dashboard-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="mb-0">Hello {{ Auth::user()->name }}</h3>
+                                            <br>
+                                            <div class="col-sm-9 text-secondary">
+                                                <img src="{{ (!empty($userData->photo)) ? url('media/profile/'.$userData->photo):url('media/profile/no_image.jpg') }}" alt="Admin" style="width: 100px" height="100px" id="showImage">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                From your account dashboard. you can easily check &amp; view your <a
+                                                    href="#">recent orders</a>,<br />
+                                                manage your <a href="#">shipping and billing addresses</a> and <a
+                                                    href="#">edit your password and account details.</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <div class="page-header breadcrumb-wrap">
     <div class="container">
         <div class="breadcrumb">
             <a href="{{ route('user.dashboard') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
@@ -172,6 +294,8 @@
                                         <h5>Account Details</h5>
                                     </div>
                                     <div class="card-body">
+
+
                                         <form action="{{ route('user.profile.store') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
@@ -292,5 +416,4 @@
             reader.readAsDataURL(e.target.files['0']);
         });
     });
-</script>
-@endsection
+</script> --}}
