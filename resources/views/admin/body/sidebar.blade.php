@@ -157,7 +157,11 @@
                 <div class="menu-title">Order Manage </div>
             </a>
             <ul>
+                <li> <a href="{{ route('admin.all.order') }}"><i class="bx bx-right-arrow-alt"></i>All Order</a></li>
                 <li> <a href="{{ route('pending.order') }}"><i class="bx bx-right-arrow-alt"></i>Panding Order</a></li>
+                <li> <a href="{{ route('admin.confirmed.order') }}"><i class="bx bx-right-arrow-alt"></i>Confirmed Order</a></li>
+                <li> <a href="{{ route('admin.processing.order') }}"><i class="bx bx-right-arrow-alt"></i>Processing Order</a></li>
+                <li> <a href="{{ route('admin.delivered.order') }}"><i class="bx bx-right-arrow-alt"></i>Delivered Order</a></li>
             </ul>
         </li>
 

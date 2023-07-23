@@ -246,8 +246,22 @@
                         </tbody>
                     </table>
                 </div>
+                   <!--  // Start Return Order Option  -->
+            <div class=" pt-50 pb-50 text-center ">
+                @if($order->status !== 'deliverd')
+
+                @else
+                <h1 style="background-color: #F4F6FA">Order Return Reason</h1><br><br>
+                    <textarea name="return_reason" class="form-control" placeholder="Enter Your Product Return Reason"></textarea><br>
+                    <button type="submit" class="btn-sm btn-danger">Order Return</button>
+                @endif
+            </div>
+
+
+
             </div>
         </div>
     </div>
+<!-- Textarea 2 rows height -->
 
 @endsection

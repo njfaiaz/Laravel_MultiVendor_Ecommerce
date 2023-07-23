@@ -1,25 +1,20 @@
 @extends('admin.admin_dashboard')
 
-@section('title', 'All Orders')
+@section('title', 'Panding Orders')
 
 @section('admin')
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">All Orders</div>
+            <div class="breadcrumb-title pe-3">Panding Orders</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Orders</li>
+                        <li class="breadcrumb-item active" aria-current="page">Panding Orders</li>
                     </ol>
                 </nav>
-            </div>
-            <div class="ms-auto">
-                <div class="btn-group">
-                    <a href="{{ route('brand.add') }}" class="btn btn-primary">Panding Order</a>
-                </div>
             </div>
         </div>
         <hr />
@@ -47,7 +42,7 @@
                                 <td>${{ $item->amount }}</td>
                                 <td>{{ $item->payment_method }}</td>
                                 <td> <span class="badge rounded-pill bg-success"> {{ $item->status }}</span></td>
-                                <td><a href=" " class="btn btn-info" title="Details"><i class="fa fa-eye"></i> </a></td>
+                                <td><a href="{{ route('admin.order.details',$item->id) }} " class="btn btn-info" title="Details">Derails </a></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -163,12 +163,17 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('district/ajax/{district_id}', [ShippingAreaController::class, 'GetDistrict']);
 
     // ------------------------------ Admin Order Manage Page ----------------------------------
+    Route::get('All/orders', [OrderController::class, 'AllOrder'])->name('admin.all.order');
     Route::get('pending/order', [OrderController::class, 'PendingOrder'])->name('pending.order');
-    // Route::get('slider/add', [OrderController::class, 'add'])->name('slider.add');
-    // Route::post('slider/store', [OrderController::class, 'Store'])->name('slider.store');
-    // Route::get('slider/edit/{id}', [OrderController::class, 'Edit'])->name('slider.edit');
-    // Route::post('slider/update/{id}', [OrderController::class, 'Update'])->name('slider.update');
-    // Route::get('slider/delete/{id}', [OrderController::class, 'Delete'])->name('slider.delete');
+    Route::get('confirmed/order', [OrderController::class, 'ConfirmedOrder'])->name('admin.confirmed.order');
+    Route::get('processing/order', [OrderController::class, 'ProcessingOrder'])->name('admin.processing.order');
+    Route::get('delivered/order', [OrderController::class, 'DeliveredOrder'])->name('admin.delivered.order');
+    Route::get('order/details/{id}', [OrderController::class, 'AdminOrderDetails'])->name('admin.order.details');
+    Route::get('pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending-confirm');
+    Route::get('confirm/delivered{order_id}', [OrderController::class, 'ConfirmToDelivered'])->name('confirm-delivered');
+    Route::get('processing/delivered/{order_id}', [OrderController::class, 'ProcessingToDelivered'])->name('processing-delivered');
+    Route::get('invoice/download/{order_id}', [OrderController::class, 'InvoiceDownload'])->name('admin.invoice.download');
+
 
 
 
