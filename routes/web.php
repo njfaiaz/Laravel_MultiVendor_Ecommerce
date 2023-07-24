@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ActiveUserController;
 use App\Http\Controllers\User\UserController;
 Use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
@@ -194,12 +195,21 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('all/user', [ActiveUserController::class, 'AllUser'])->name('all-user');
     Route::get('all/vendor', [ActiveUserController::class, 'AllVendor'])->name('all-vendor');
 
+    // ------------------------------ Admin Blog Page ----------------------------------
+    Route::get('blog/category', [BlogController::class, 'AllBlogCategory'])->name('admin.blog.category');
+    Route::get('add/blog/category', [BlogController::class, 'AddBlogCategory'])->name('add.blog.category');
+    Route::post('store/blog/category', [BlogController::class, 'StoreBlogCategory'])->name('store.blog.category');
+    Route::get('edit/blog/category/{id}', [BlogController::class, 'EditBlogCategory'])->name('edit.blog.category');
+    Route::post('update/blog/category', [BlogController::class, 'UpdateBlogCategory'])->name('update.blog.category');
+    Route::get('delete/blog/category/{id}', [BlogController::class, 'DeleteBlogCategory'])->name('delete.blog.category');
 
-
-
-
-
-
+    // ------------------------------ Admin Blog Page ----------------------------------
+    Route::get('blog/post', [BlogController::class, 'AllBlogPost'])->name('admin.blog.post');
+    Route::get('add/blog/post', [BlogController::class, 'AddBlogPost'])->name('add.blog.post');
+    Route::post('store/blog/post', [BlogController::class, 'StoreBlogPost'])->name('store.blog.post');
+    Route::get('edit/blog/post/{id}', [BlogController::class, 'EditBlogPost'])->name('edit.blog.post');
+    Route::post('edit/update/blog/post', [BlogController::class, 'UpdateBlogPost'])->name('update.blog.post');
+    Route::get('delete/blog/post/{id}', [BlogController::class, 'DeleteBlogPost'])->name('delete.blog.post');
 
 
 });// Admin Group Middleware End
