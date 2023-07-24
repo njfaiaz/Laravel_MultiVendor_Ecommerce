@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ActiveUserController;
 use App\Http\Controllers\User\UserController;
 Use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BannerController;
@@ -188,6 +189,15 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::post('report/search/by/year', [ReportController::class, 'SearchByYear'])->name('search-by-year');
     Route::get('order/by/user', [ReportController::class, 'OrderByUser'])->name('order.by.user');
     Route::post('search/by/user', [ReportController::class, 'SearchByUser'])->name('search-by-user');
+
+    // ------------------------------ Admin Active & Inactive User OR Vendor Page ----------------------------------
+    Route::get('all/user', [ActiveUserController::class, 'AllUser'])->name('all-user');
+    Route::get('all/vendor', [ActiveUserController::class, 'AllVendor'])->name('all-vendor');
+
+
+
+
+
 
 
 

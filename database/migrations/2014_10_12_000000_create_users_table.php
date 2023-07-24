@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->nullable();
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
+            $table->string('last_seen')->nullable();
             $table->string('vendor_join')->nullable();
             $table->string('vendor_short_info')->nullable();
             $table->integer('role_id')->default(2);
