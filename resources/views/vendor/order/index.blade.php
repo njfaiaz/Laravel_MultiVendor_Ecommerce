@@ -16,11 +16,6 @@
                     </ol>
                 </nav>
             </div>
-            <div class="ms-auto">
-                <div class="btn-group">
-                    <a href="{{ route('brand.add') }}" class="btn btn-primary">Panding Order</a>
-                </div>
-            </div>
         </div>
         <hr />
         <div class="card">
@@ -47,7 +42,7 @@
                                 <td>${{ $item['order']['amount'] }}</td>
                                 <td>{{ $item['order']['payment_method'] }}</td>
                                 <td> <span class="badge rounded-pill bg-success"> {{ $item['order']['status'] }}</span></td>
-                                <td><a href=" " class="btn btn-info" title="Details"><i class="fa fa-eye"></i> </a></td>
+                                <td><a href=" {{ route('vendor.order_details',$item->order->id) }}" class="btn btn-info" title="Details">Details </a></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -217,11 +217,10 @@ Route::group(['prefix'=>'vendor','middleware' =>['vendor','auth'],'namespace'=>'
 
     // ------------------------------ Vendor Order Manage Page ----------------------------------
     Route::get('pending/order', [VendorOrderController::class, 'PendingOrder'])->name('vendor.all.order');
-    // Route::get('slider/add', [OrderController::class, 'add'])->name('slider.add');
-    // Route::post('slider/store', [OrderController::class, 'Store'])->name('slider.store');
-    // Route::get('slider/edit/{id}', [OrderController::class, 'Edit'])->name('slider.edit');
-    // Route::post('slider/update/{id}', [OrderController::class, 'Update'])->name('slider.update');
-    // Route::get('slider/delete/{id}', [OrderController::class, 'Delete'])->name('slider.delete');
+    Route::get('return/order', [VendorOrderController::class, 'ReturnOrder'])->name('vendor.return.order');
+    Route::get('return/order/complete', [VendorOrderController::class, 'CompleteReturnOrder'])->name('vendor.complete.return.order');
+    Route::get('order/details/{order_id}', [VendorOrderController::class, 'OrderDetails'])->name('vendor.order_details');
+
 
 
 

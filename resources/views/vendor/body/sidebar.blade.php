@@ -62,15 +62,16 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
-                <div class="menu-title">All Order</div>
+                <div class="menu-title"> Order Manage</div>
             </a>
             <ul>
-                <li> <a href="{{ route('vendor.all.order') }}"><i class="bx bx-right-arrow-alt"></i>All Order</a>
-                </li>
-                <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>All Product</a>
-                </li>
+                <li> <a href="{{ route('vendor.all.order') }}"><i class="bx bx-right-arrow-alt"></i>All Order</a></li>
+                <li> <a href="{{ route('vendor.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Return Order</a></li>
+                <li> <a href="{{ route('vendor.complete.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Complete Return Order</a></li>
+
             </ul>
         </li>
+
         @else
 
     @endif
