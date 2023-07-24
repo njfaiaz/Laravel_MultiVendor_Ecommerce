@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Http\Controllers\Admin\SliderController;
@@ -180,10 +181,19 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('return/request/approved/{order_id}', [ReturnController::class, 'ReturnRequestApproved'])->name('return.request.approved');
     Route::get('return/request/Complete', [ReturnController::class, 'ReturnRequestComplete'])->name('complete.return.request');
 
+    // ------------------------------ Admin Report Page ----------------------------------
+    Route::get('report/view', [ReportController::class, 'Report'])->name('report.view');
+    Route::post('report/search/by/date', [ReportController::class, 'SearchByDate'])->name('search-by-date');
+    Route::post('report/search/by/month', [ReportController::class, 'SearchByMonth'])->name('search-by-month');
+    Route::post('report/search/by/year', [ReportController::class, 'SearchByYear'])->name('search-by-year');
+    Route::get('order/by/user', [ReportController::class, 'OrderByUser'])->name('order.by.user');
+    Route::post('search/by/user', [ReportController::class, 'SearchByUser'])->name('search-by-user');
+
 
 
 
 });// Admin Group Middleware End
+
 
 
 
