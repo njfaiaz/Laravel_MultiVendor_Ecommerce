@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ReturnController;
 use App\Http\Controllers\Admin\ShippingAreaController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\VendorManageController;
@@ -113,6 +114,12 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
         //  Product Inactive route --------------------------------------------------------------------
     Route::get('product/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
     Route::get('product/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
+
+    //  Product Store route --------------------------------------------------------------------
+    Route::get('product/stock', [ProductController::class, 'ProductStock'])->name('product.stock');
+
+
+
 
 
     // ------------------------------ Admin Slider Page ----------------------------------
@@ -218,6 +225,18 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('edit/review/{id}', [ReviewController::class, 'ReviewApprove'])->name('review.approve');
     Route::get('publish/review', [ReviewController::class, 'PublishReview'])->name('publish.review');
     Route::get('review/delete/{id}', [ReviewController::class, 'ReviewDelete'])->name('review.delete');
+
+    // ------------------------------ Admin Setting All Part ----------------------------------
+    Route::get('site/setting', [SiteSettingController::class, 'Setting'])->name('site.setting');
+    Route::post('site/setting/update', [SiteSettingController::class, 'SettingUpdate'])->name('site.setting.update');
+
+    // ------------------------------ Admin Seo Setting All Part ----------------------------------
+    Route::get('seo/setting', [SiteSettingController::class, 'SeoSetting'])->name('seo.setting');
+    Route::post('seo/setting/update', [SiteSettingController::class, 'SeoSettingUpdate'])->name('seo.setting.update');
+
+
+
+
 
 });// Admin Group Middleware End
 

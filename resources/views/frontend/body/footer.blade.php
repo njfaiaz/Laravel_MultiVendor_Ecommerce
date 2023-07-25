@@ -1,4 +1,6 @@
-
+@php
+    $setting = App\Models\SiteSetting::find(1);
+@endphp
 <section class="newsletter mb-15 wow animate__animated animate__fadeIn">
     <div class="container">
         <div class="row">
@@ -114,19 +116,18 @@
                     data-wow-delay="0">
                     <div class="logo mb-30">
                         <a href="index.html" class="mb-15"><img
-                                src="{{ asset('frontend/assets') }}/imgs/theme/logo.svg"
+                                src="{{ asset($setting->logo) }}"
                                 alt="logo" /></a>
-                        <p class="font-lg text-heading">Awesome grocery store website template</p>
+                        <p class="font-lg text-heading">Awesome grocery store website E-Commerce</p>
                     </div>
                     <ul class="contact-infor">
                         <li><img src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-location.svg"
-                                alt="" /><strong>Address: </strong> <span>5171 W Campbell Ave
-                                undefined Kent, Utah 53127 United States</span></li>
+                                alt="" /><strong>Address: </strong> <span>{{ $setting->company_address }}</span></li>
                         <li><img src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-contact.svg"
-                                alt="" /><strong>Call Us:</strong><span>(+91) - 540-025-124553</span>
+                                alt="" /><strong>Call Us:</strong><span>{{ $setting->phone_one }}</span>
                         </li>
                         <li><img src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-email-2.svg"
-                                alt="" /><strong>Email:</strong><span>sale@Nest.com</span></li>
+                                alt="" /><strong>Email:</strong><span>{{ $setting->email }}</span></li>
                         <li><img src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-clock.svg"
                                 alt="" /><strong>Hours:</strong><span>10:00 - 18:00, Mon - Sat</span>
                         </li>
@@ -194,33 +195,27 @@
             <div class="footer-bottom"></div>
         </div>
         <div class="col-xl-4 col-lg-6 col-md-6">
-            <p class="font-sm mb-0">&copy; 2022, <strong class="text-brand">Nest</strong> - HTML Ecommerce
-                Template <br />All rights reserved</p>
+            <p class="font-sm mb-0">&copy; {{ $setting->copyright }}, <strong class="text-brand">Faiaz</strong>  E-commerce
+               <br />All rights reserved</p>
         </div>
         <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
 
             <div class="hotline d-lg-inline-flex">
                 <img src="{{ asset('frontend/assets') }}/imgs/theme/icons/phone-call.svg"
                     alt="hotline" />
-                <p>1900 - 8888<span>24/7 Support Center</span></p>
+                <p>{{ $setting->support_phone }}<span>24/7 Support Center</span></p>
             </div>
         </div>
         <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
             <div class="mobile-social-icon">
                 <h6>Follow Us</h6>
-                <a href="#"><img
+                <a href="{{ $setting->facebook }}"><img
                         src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-facebook-white.svg"
                         alt="" /></a>
-                <a href="#"><img
+                <a href="{{ $setting->twitter }}"><img
                         src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-twitter-white.svg"
                         alt="" /></a>
-                <a href="#"><img
-                        src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-instagram-white.svg"
-                        alt="" /></a>
-                <a href="#"><img
-                        src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-pinterest-white.svg"
-                        alt="" /></a>
-                <a href="#"><img
+                <a href="{{ $setting->youtube }}"><img
                         src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-youtube-white.svg"
                         alt="" /></a>
             </div>

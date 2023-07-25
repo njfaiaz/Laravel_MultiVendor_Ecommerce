@@ -229,6 +229,39 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Seo Setting </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('seo.setting') }}"><i class="bx bx-right-arrow-alt"></i>Admin Seo Setting</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Stock Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('product.stock') }}"><i class="bx bx-right-arrow-alt"> Product Stock</i></a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                </div>
+                <div class="menu-title">Site Setting </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('site.setting') }}"><i class="bx bx-right-arrow-alt"></i>Admin Setting</a></li>
+            </ul>
+        </li>
+
     </ul>
     <!--end navigation-->
 </div>

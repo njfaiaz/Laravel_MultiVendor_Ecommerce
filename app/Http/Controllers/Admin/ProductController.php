@@ -228,5 +228,14 @@ class ProductController extends Controller
         return Redirect()->back()->with($notification);
     } // End method
 
+    // Product Stock Manage -------------------------------------------------------------
+
+    public function ProductStock(){
+
+        $products = Product::latest()->get();
+        return view('admin.product.product_stock',compact('products'));
+
+    }// End Method
+
 
 }

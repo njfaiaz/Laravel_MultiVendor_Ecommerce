@@ -60,11 +60,15 @@
             </div>
         </div>
     </div>
+
+    @php
+        $setting = App\Models\SiteSetting::find(1);
+    @endphp
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="{{ asset('frontend/assets') }}/imgs/theme/logo.svg"
+                    <a href="{{ route('home') }}"><img src="{{ asset($setting->logo) }}"
                             alt="logo" /></a>
                 </div>
                 <div class="header-right">
@@ -326,7 +330,7 @@
                 <div class="hotline d-none d-lg-flex">
                     <img src="{{ asset('frontend/assets') }}/imgs/theme/icons/icon-headphone.svg"
                         alt="hotline" />
-                    <p>1900 - 888<span>24/7 Support Center</span></p>
+                    <p>{{ $setting->support_phone }}<span>24/7 Support Center</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">

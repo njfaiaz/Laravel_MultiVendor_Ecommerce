@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -73,14 +75,21 @@ class OrderController extends Controller
 
 
     public function ProcessingToDelivered($order_id){
-        Order::findOrFail($order_id)->update(['status' => 'deliverd']);
 
+        $product = OrderItem::where('order_id',$order_id)->get();
+        foreach($product as $item){
+            Product::where('id',$item->product_id)->update(['product_qty' => DB::raw('product_qty-'.$item->qty) ]);
+
+        }
+        Order::findOrFail($order_id)->update(['status' => 'deliverd']);
         $notification = array(
             'message' => 'Order Deliverd Successfully',
             'alert' => 'success'
         );
         return redirect()->route('admin.delivered.order')->with($notification);
     }// End Method
+
+
 
     public function InvoiceDownload($order_id){
         $order = Order::with('division','district','state','user')->where('id',$order_id)->first();
