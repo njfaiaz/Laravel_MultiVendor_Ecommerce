@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\CompareController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
@@ -212,6 +213,12 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('delete/blog/post/{id}', [BlogController::class, 'DeleteBlogPost'])->name('delete.blog.post');
 
 
+    // ------------------------------ Admin Review & Comment ----------------------------------
+    Route::get('pending/review', [ReviewController::class, 'PendingReview'])->name('pending.review');
+    Route::get('edit/review/{id}', [ReviewController::class, 'ReviewApprove'])->name('review.approve');
+    Route::get('publish/review', [ReviewController::class, 'PublishReview'])->name('publish.review');
+    Route::get('review/delete/{id}', [ReviewController::class, 'ReviewDelete'])->name('review.delete');
+
 });// Admin Group Middleware End
 
 
@@ -305,6 +312,11 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('order/invoice/{order_id}', [AllUserController::class, 'OrderInvoice']);
     Route::post('return/order/{order_id}', [AllUserController::class, 'ReturnOrder'])->name('return.order');
     Route::get('return/order/page', [AllUserController::class, 'ReturnOrderPage'])->name('return.order.page');
+
+    // ------------------------------ User Review & Comment ----------------------------------
+    Route::get('store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
+
+
 
 
 
