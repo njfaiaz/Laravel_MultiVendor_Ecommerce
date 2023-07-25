@@ -356,6 +356,17 @@ Route::controller(CheckoutController::class)->group(function(){
     Route::get('cart-decrement/{rowId}', [CartController::class, 'cartDecrement']);
     Route::get('cart-increment/{rowId}', [CartController::class, 'cartIncrement']);
 
+    // ------------------------------ Blog Page View ----------------------------------
+    Route::get('blog',[BlogController::class,'AllBlog'])->name('home.blog');
+    Route::get('post/details/{id}/{slug}',[BlogController::class,'BlogDetails']);
+    Route::get('post/category/{id}/{slug}',[BlogController::class,'BlogPostCategory']);
+
+
+
+
+
+
+
     // --------------------------- Cart Page Check Out -------------------------------
     Route::get('checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
