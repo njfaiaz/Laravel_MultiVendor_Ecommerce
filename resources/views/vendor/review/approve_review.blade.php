@@ -1,8 +1,8 @@
-@extends('admin.admin_dashboard')
+@extends('vendor.vendor_dashboard')
 
-@section('title', 'Pending Review')
+@section('title', 'Panding Review ')
 
-@section('admin')
+@section('vendor')
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -18,6 +18,7 @@
             </div>
         </div>
         <hr />
+
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
@@ -31,6 +32,7 @@
                                 <th>Comment </th>
                                 <th>Rating </th>
                                 <th>Status </th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -90,12 +92,11 @@
                                         @endif
                                     </td>
 
-                                    <td>
-                                        <a href="{{ route('review.approve', $item->id) }}" class="btn btn-danger" id="approved">Approve</a>
 
-                                    </td>
                                 </tr>
                             @endforeach
+
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -106,6 +107,7 @@
                                 <th>Comment </th>
                                 <th>Rating </th>
                                 <th>Status </th>
+
                             </tr>
                         </tfoot>
                     </table>

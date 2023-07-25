@@ -258,7 +258,8 @@ Route::group(['prefix'=>'vendor','middleware' =>['vendor','auth'],'namespace'=>'
     Route::get('return/order/complete', [VendorOrderController::class, 'CompleteReturnOrder'])->name('vendor.complete.return.order');
     Route::get('order/details/{order_id}', [VendorOrderController::class, 'OrderDetails'])->name('vendor.order_details');
 
-
+    // ------------------------------ Vendor Review Manage Page ----------------------------------
+    Route::get('pending/review', [ReviewController::class, 'VendorPendingOrder'])->name('vendor.all.review');
 
 
 
