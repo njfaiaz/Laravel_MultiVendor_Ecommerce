@@ -353,6 +353,8 @@ Route::controller(CheckoutController::class)->group(function(){
 });
 
 
+
+
 // ================================= General User All Route This ===========================================
 
             //    ------------------ User Login Or Register  --------------------------------------
@@ -394,9 +396,9 @@ Route::controller(CheckoutController::class)->group(function(){
     Route::get('post/details/{id}/{slug}',[BlogController::class,'BlogDetails']);
     Route::get('post/category/{id}/{slug}',[BlogController::class,'BlogPostCategory']);
 
-
-
-
+    // ------------------------------ Product Search Page View ----------------------------------
+    Route::post('search',[IndexController::class,'ProductSearch'])->name('product.search');
+    Route::post('search-product',[IndexController::class,'SearchProduct']);
 
 
 

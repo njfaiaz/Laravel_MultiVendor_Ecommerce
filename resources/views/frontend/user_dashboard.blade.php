@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/main.css?v=5.3" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     <script src="https://js.stripe.com/v3/"></script>
+
     <title> @yield('title')</title>
 </head>
 
@@ -89,6 +90,7 @@
     <script src="{{ asset('frontend/assets') }}/js/main.js?v=5.3"></script>
     <script src="{{ asset('frontend/assets') }}/js/shop.js?v=5.3"></script>
     <script src="{{ asset('frontend/assets/sweetalert2@11') }}"></script>
+    <script src="{{ asset('frontend/assets/js/search_script.js') }}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
