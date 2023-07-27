@@ -332,10 +332,11 @@ Route::group(['middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('order/invoice/{order_id}', [AllUserController::class, 'OrderInvoice']);
     Route::post('return/order/{order_id}', [AllUserController::class, 'ReturnOrder'])->name('return.order');
     Route::get('return/order/page', [AllUserController::class, 'ReturnOrderPage'])->name('return.order.page');
+    Route::get('track/page', [AllUserController::class, 'UserTrackOrderPage'])->name('user.track.order');
+    Route::post('order/tracking', [AllUserController::class, 'OrderTracking'])->name('order.tracking');
 
     // ------------------------------ User Review & Comment ----------------------------------
     Route::get('store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
-
 
 
 
