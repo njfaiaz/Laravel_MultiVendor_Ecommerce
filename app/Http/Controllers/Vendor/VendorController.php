@@ -5,12 +5,14 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Vendor;
+use App\Notifications\VendorRegistration;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Notification;
 
 class VendorController extends Controller
 {
@@ -117,6 +119,7 @@ class VendorController extends Controller
     }
 
     public function vendorCreate(Request $request){
+        $user = User::where('role','admin')->get();
 
         User::insert([
             'name' => $request->name,
@@ -133,6 +136,7 @@ class VendorController extends Controller
             'message'=>'Vendor Register Successfully ',
             'alert'=>'success'
         );
+        Notification::send($user, new VendorRegistration($request));
         return Redirect()->route('become.vendor.login')->with($notification);
 
     }// End Method

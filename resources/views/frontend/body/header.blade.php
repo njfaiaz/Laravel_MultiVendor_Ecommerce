@@ -222,7 +222,7 @@
 
 
 @php
-    $categories = App\Models\Category::orderBy('category_name','ASC')->get();
+    $categories = App\Models\Category::orderBy('category_name','ASC')->limit(10)->get();
 @endphp
 
 
@@ -245,21 +245,25 @@
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
                                     @foreach ($categories as $item)
+                                        @if($loop->index < 5)
                                         <li>
-                                            <a href="shop-grid-right.html"> <img
+                                            <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
                                                     src="{{ asset($item->category_image) }}"
                                                     alt="" />{{ $item->category_name }}</a>
                                         </li>
+                                        @endif
                                     @endforeach
 
                                 </ul>
                                 <ul class="end">
                                     @foreach ($categories as $item)
+                                    @if($loop->index > 4)
                                     <li>
-                                        <a href="shop-grid-right.html"> <img
+                                        <a href="{{ url('product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
                                                 src="{{ asset($item->category_image) }}"
                                                 alt="" />{{ $item->category_name }}</a>
                                     </li>
+                                    @endif
                                 @endforeach
 
                                 </ul>
