@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="{{ asset('frontend/assets') }}/css/main.css?v=5.3" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
     <script src="https://js.stripe.com/v3/"></script>
 
     <title> @yield('title')</title>
@@ -91,6 +92,8 @@
     <script src="{{ asset('frontend/assets') }}/js/shop.js?v=5.3"></script>
     <script src="{{ asset('frontend/assets/sweetalert2@11') }}"></script>
     <script src="{{ asset('frontend/assets/js/search_script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 

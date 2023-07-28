@@ -309,7 +309,7 @@
 
                                 </li>
                                 @php
-                                    $categories = App\Models\Category::orderBy('category_name','ASC')->limit(6)->get();
+                                    $categories = App\Models\Category::orderBy('category_name','ASC')->limit(5)->get();
                                 @endphp
                                 @foreach ($categories as $category)
                                     <li>
@@ -324,6 +324,9 @@
                                         </ul>
                                     </li>
                                 @endforeach
+                                <li>
+                                    <a href="{{ route('shop.page') }}">Shop</a>
+                                </li>
                                 <li>
                                     <a href="{{ route('home.blog') }}">Blog</a>
                                 </li>

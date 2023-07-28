@@ -25,6 +25,7 @@ use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\ReviewController;
+use App\Http\Controllers\User\ShopController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Vendor\VendorController;
@@ -420,6 +421,11 @@ Route::controller(CheckoutController::class)->group(function(){
     Route::get('cartRemove/{rowId}', [CartController::class, 'cartRemove']);
     Route::get('cart-decrement/{rowId}', [CartController::class, 'cartDecrement']);
     Route::get('cart-increment/{rowId}', [CartController::class, 'cartIncrement']);
+
+    // ------------------------------ Shop Page----------------------------------
+    Route::get('shop', [ShopController::class, 'ShopPage'])->name('shop.page');
+    Route::post('shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.filter');
+
 
     // ------------------------------ Blog Page View ----------------------------------
     Route::get('blog',[BlogController::class,'AllBlog'])->name('home.blog');
