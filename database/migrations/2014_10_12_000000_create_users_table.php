@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('last_seen')->nullable();
             $table->string('vendor_join')->nullable();
             $table->string('vendor_short_info')->nullable();
-            $table->integer('role_id')->default(2);
+            $table->enum('role',['admin','vendor','user'])->default('user');
             $table->enum('status',['active','inactive'])->default('active');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

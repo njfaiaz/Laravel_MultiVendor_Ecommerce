@@ -10,13 +10,13 @@ use Laravel\Ui\Presets\React;
 class VendorManageController extends Controller
 {
     public function vendorInactive(){
-        $inActiveVendor = User::where('status','inactive')->where('role_id','3')->latest()->get();
+        $inActiveVendor = User::where('status','inactive')->where('role','vendor')->latest()->get();
         return view('admin.vendorManage.inActive',compact('inActiveVendor'));
     } // End Method
 
 
     public function vendorActive(){
-        $ActiveVendor = User::where('status','active')->where('role_id','3')->latest()->get();
+        $ActiveVendor = User::where('status','active')->where('role','vendor')->latest()->get();
         return view('admin.vendorManage.Active',compact('ActiveVendor'));
     } // End Method
 

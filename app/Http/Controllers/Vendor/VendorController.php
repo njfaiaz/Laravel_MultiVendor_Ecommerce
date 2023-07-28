@@ -123,7 +123,7 @@ class VendorController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'vendor_join' => Carbon::now(),
-            'role_id' => 3,
+            'role' => 'vendor',
             'status' => 'inactive',
             'vendor_join' => Carbon::now(),
             'password' => Hash::make($request->password),

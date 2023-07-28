@@ -23,7 +23,7 @@ class ProductController extends Controller
 
 
     public function add(){
-        $activeVendor = User::where('status','active')->where('role_id','3')->latest()->get();
+        $activeVendor = User::where('status','active')->where('role','vendor')->latest()->get();
         $brands = Brand::latest()->get();
         $categories = Category::latest()->get();
         return view('admin.product.add',compact('activeVendor','brands','categories'));
@@ -84,7 +84,7 @@ class ProductController extends Controller
 
     public function Edit($id){
         $multi_image = MultiImage::where('product_id',$id)->get();
-        $activeVendor = User::where('status','active')->where('role_id','3')->latest()->get();
+        $activeVendor = User::where('status','active')->where('role','vendor')->latest()->get();
         $brands = Brand::latest()->get();
         $categories = Category::latest()->get();
         $subcategories = SubCategory::latest()->get();

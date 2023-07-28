@@ -18,6 +18,7 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
+        "spatie/laravel-permission": "^5.10",
         "stripe/stripe-php": "^10.16"
     },
     "require-dev": {

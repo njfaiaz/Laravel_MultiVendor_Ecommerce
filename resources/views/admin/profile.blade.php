@@ -26,7 +26,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ (!empty($adminData->photo)) ? url('admin/media/profile/'.$adminData->photo):url('admin/media/profile/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                        <img src="{{ (!empty($adminData->photo)) ? url('media/profile/'.$adminData->photo):url('media/profile/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                         <div class="mt-3">
                                             <h4>{{ $adminData->name }}</h4>
                                             <p class="text-secondary mb-1">{{ $adminData->email }}</p>

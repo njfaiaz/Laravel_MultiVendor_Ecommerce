@@ -105,7 +105,7 @@ class IndexController extends Controller
     // All Vendor List -------------------------------------------------------------------------------
 
     public function allVendor(){
-        $allVendor = User::where('status','active')->where('role_id',3)->orderBy('id','DESC')->get();
+        $allVendor = User::where('status','active')->where('role_','vendor')->orderBy('id','DESC')->get();
         return view('frontend.vendor.all_vendor',compact('allVendor'));
     } // End Method
 

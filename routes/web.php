@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ReturnController;
+use App\Http\Controllers\Admin\RolePermission;
 use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -234,13 +235,42 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('seo/setting', [SiteSettingController::class, 'SeoSetting'])->name('seo.setting');
     Route::post('seo/setting/update', [SiteSettingController::class, 'SeoSettingUpdate'])->name('seo.setting.update');
 
+    // ------------------------------ Admin Roles & Permission Setting All Part ------------------------------
+    Route::get('role/permission', [RolePermission::class, 'RolePermissionSetting'])->name('all.permission');
+    Route::get('add/permission', [RolePermission::class, 'AddRolePermission'])->name('add.permission');
+    Route::post('store/permission', [RolePermission::class, 'StorePermission'])->name('store.permission');
+    Route::get('edit/permission/{id}', [RolePermission::class, 'EditPermission'])->name('edit.permission');
+    Route::post('edit/permission/{id}', [RolePermission::class, 'UpdatePermission'])->name('update.permission');
+    Route::get('delete/permission/{id}', [RolePermission::class, 'DeletePermission'])->name('delete.permission');
+
+    Route::get('role', [RolePermission::class, 'Role'])->name('all.roles');
+    Route::get('role/add', [RolePermission::class, 'AddRole'])->name('role.add');
+    Route::post('store/role', [RolePermission::class, 'StoreRole'])->name('store.role');
+    Route::get('edit/role/{id}', [RolePermission::class, 'EditRoll'])->name('edit.role');
+    Route::post('edit/role/{id}', [RolePermission::class, 'UpdateRole'])->name('update.role');
+    Route::get('delete/role/{id}', [RolePermission::class, 'DeleteRole'])->name('delete.role');
+
+
+    Route::get('add/roles/permission', [RolePermission::class, 'AddRolePerm'])->name('add.roles.permission');
+    Route::post('roles/permission/store', [RolePermission::class, 'StoreRolePerm'])->name('role.permission.store');
+    Route::get('all/roles/permission/store', [RolePermission::class, 'AllRolesPermission'])->name('all.roles.permission');
+    Route::get('all/edit/roles/{id}', [RolePermission::class, 'AdminRolesEdit'])->name('admin.edit.roles');
+    Route::post('all/roles/update/{id}', [RolePermission::class, 'AdminRolesUpdate'])->name('admin.roles.update');
+    Route::get('all/roles/delete/{id}', [RolePermission::class, 'AdminRolesDelete'])->name('admin.delete.roles');
+
+
+    Route::get('all/admin', [AdminController::class, 'AllAdmin'])->name('all.admin');
+    Route::get('add/admin', [AdminController::class, 'AddAdmin'])->name('add.admin');
+    Route::post('admin/user/store', [AdminController::class, 'AdminUserStore'])->name('admin.user.store');
+    Route::get('edit/admin/role/{id}', [AdminController::class, 'EditAdminRole'])->name('edit.admin.role');
+    Route::post('admin/user/update/{id}', [AdminController::class, 'AdminUserUpdate'])->name('admin.user.update');
+    Route::get('admin/user/delete/{id}', [AdminController::class, 'DeleteAdminRole'])->name('delete.admin.role');
+
 
 
 
 
 });// Admin Group Middleware End
-
-
 
 
 

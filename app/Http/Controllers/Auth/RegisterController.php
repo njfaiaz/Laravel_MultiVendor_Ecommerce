@@ -32,13 +32,13 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
         protected function redirectTo(){
-            if (Auth()->user()->role_id ==1 ) {
+            if (Auth()->user()->role =='admin' ) {
                 return route('admin.dashboard');
 
-            }elseif (Auth()->user()->role_id ==2 ) {
+            }elseif (Auth()->user()->role =='user' ) {
             return route('user.dashboard');
 
-            }elseif (Auth()->user()->role_id ==3 ) {
+            }elseif (Auth()->user()->role =='vendor' ) {
                 return route('vendor.dashboard');
                 }
         }
@@ -77,7 +77,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'role_id' => 2,
+            'role' => 'user',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'vendor_join' => Carbon::now(),

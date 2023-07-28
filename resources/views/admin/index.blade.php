@@ -13,8 +13,8 @@
 	$year = date('Y');
 	$year = App\Models\Order::where('order_year',$year)->sum('amount');
 	$pending = App\Models\Order::where('status','pending')->get();
-	$vendor = App\Models\User::where('status','active')->where('role_id','3')->get();
-	$customer = App\Models\User::where('status','active')->where('role_id','2')->get();
+	$vendor = App\Models\User::where('status','active')->where('role','vendor')->get();
+	$customer = App\Models\User::where('status','active')->where('role','user')->get();
 @endphp
 
 

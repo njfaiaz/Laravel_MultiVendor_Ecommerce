@@ -28,7 +28,7 @@ class VendorMiddleware
          }
 
 
-        if (Auth::check() && Auth::user()->role_id == 3) {
+        if (Auth::check() && Auth::user()->role == 'vendor') {
             return $next($request);
         }else{
             return redirect()->route('login');

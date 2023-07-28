@@ -49,7 +49,7 @@ class ReportController extends Controller
 
 
     public function OrderByUser(){
-        $users = User::where('role_id','2')->latest()->get();
+        $users = User::where('role','user')->latest()->get();
         return view('admin.report.report_by_user',compact('users'));
 
     }// End Method
