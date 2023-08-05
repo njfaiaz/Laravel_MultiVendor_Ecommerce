@@ -1,61 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Laravel Multivendor Ecommerce
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+![Screenshot 2023-08-05 220022](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/48335655-cfc7-409b-a5d2-ec5d79050c66)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![Screenshot 2023-08-05 220036](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/a6cb0094-72d7-4d0b-a1bb-ec0cb58fca7d)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+![Screenshot 2023-08-05 220057](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/f182e26a-9b40-4aef-9724-0f699c4cffce)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![Screenshot 2023-08-05 220122](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/805e0e53-6e32-48de-9cd2-86f4234debaf)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![Screenshot 2023-08-05 220147](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/51915ac9-d580-4647-a85e-a61c28142930)
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![Screenshot 2023-08-05 220230](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/888b7525-7a29-48c4-9d93-fd9fe559fe8a)
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+![Screenshot 2023-08-05 220300](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/c527922b-b591-42e6-9fb4-364a28f1ba5b)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+![Screenshot 2023-08-05 220352](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/d1f43aef-7a47-4741-860e-4eb4f938cccc)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+![Screenshot 2023-08-05 221151](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/123cdbee-d6d0-4f66-875b-d866ef64cfe0)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+![Screenshot 2023-08-05 220422](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/1153787a-585c-4375-955d-6b8a7fae8efe)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+![Screenshot 2023-08-05 220230](https://github.com/njfaiaz/Laravel_MultiVendor_Ecommerce/assets/47560573/183a0f77-38bd-42d1-9599-3ed500daca89)
+
